@@ -2,8 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## ENV File
 
-Before running this project add .env file and 
-### REACT_APP_GOOGLE_API_KEY = "Your_API _KEY"
+Before running this project add .env file and in the file add
+#### REACT_APP_GOOGLE_API_KEY = "Your_API _KEY"
 
 ## Available Scripts
 
