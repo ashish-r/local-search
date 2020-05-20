@@ -23,7 +23,7 @@ export interface IPlaceSearchResponse {
         }
     }
     opening_hours?: {
-        isOpen: () => boolean
+        open_now: boolean
     }
     user_ratings_total: number
     rating: number,

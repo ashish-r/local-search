@@ -46,6 +46,7 @@ const Home = () => {
                 pagination: GenericObject
             ) => {
                 if (status === maps.places.PlacesServiceStatus.OK) {
+                    console.log(response)
                     const data: IPlacesResult[] = response.map(({
                         name,
                         id,
@@ -65,7 +66,7 @@ const Home = () => {
                         vicinity,
                         lat: location.lat(),
                         lng: location.lng(),
-                        openNow: opening_hours && opening_hours.isOpen(),
+                        openNow: opening_hours && opening_hours.open_now,
                         photo: photos && photos[0] && photos[0].getUrl()
                     }))
                     setResults({isLoading: false, data})
