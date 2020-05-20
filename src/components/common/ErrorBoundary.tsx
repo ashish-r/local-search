@@ -23,7 +23,10 @@ class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryS
     render() {
       if (this.state.hasError) {
         // Fallback UI
-        return <h1>Something went wrong.</h1>
+        return <h1>Something went wrong.
+			Please <span 
+				onClick={window.location.reload}
+			>Reload.</span></h1>
       }
   
       return this.props.children
