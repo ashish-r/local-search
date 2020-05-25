@@ -48,6 +48,7 @@ const Dropdown = ({
             className={`dropdown ${
                 className || ''
             }`}
+            data-test="dropdown"
         >
             {placeholder && (<option disabled>{placeholder}</option>)}
             {selectOptions}

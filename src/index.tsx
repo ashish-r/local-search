@@ -1,11 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+
+import Header from './components/common/Header'
+import Home from './components/home/Home'
 import ErrorBoundary from './components/common/ErrorBoundary'
 
-ReactDOM.render(
+import './css/index.css'
+
+const App = () => (
 	<ErrorBoundary>
-		<App />
-	</ErrorBoundary>, 
+		<Header/>
+		<Home />
+	</ErrorBoundary>
+)
+
+ReactDOM.render(
+	<App />,
 	document.getElementById('root')
 )

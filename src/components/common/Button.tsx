@@ -22,6 +22,7 @@ const Button = ({
             className={`button ${className || ''}`}
             value={isLoading ? 'Loading...' : value} 
             onClick={onClickHandler} 
+            data-test="button"
         />
     )
 }

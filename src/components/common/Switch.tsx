@@ -35,6 +35,7 @@ const Switch = ({
                 id={id}
                 defaultChecked={checked}
                 onChange={onChangeHandler}
+                data-test="switch"
             />
             {id ? (
                 <label className="toggle-switch__label" htmlFor={id}>

@@ -31,6 +31,7 @@ const TextInput = ({
             placeholder={placeholder} 
             onChange={onChangeHandler}
             value={value}
+            data-test="textInput"
         />
     )
 }

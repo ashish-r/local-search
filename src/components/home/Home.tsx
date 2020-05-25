@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import GoogleMapReact from 'google-map-react'
 import { GOOGLE_MAP_API_KEY, MAX_RADIUS } from '../../constants/common'
 import { GenericObject, IPlacesResult, IPlaceSearchResponse, IFormState } from '../../interfaces/common'
-import NearByForm from './NearByForm'
+import NearbyForm from './NearbyForm'
 import PlaceCard from './PlaceCard'
 
 const Home = () => {
@@ -43,7 +43,6 @@ const Home = () => {
             const callback = (
                 response: Array<IPlaceSearchResponse>, 
                 status: string,
-                pagination: GenericObject
             ) => {
                 if (status === maps.places.PlacesServiceStatus.OK) {
                     console.log(response)
@@ -90,7 +89,7 @@ const Home = () => {
         <div>
             {
                 (props.id === displayedMarker) &&
-                (<div className="marker-card">
+                (<div className="marker-card" data-test="markerCard">
                     <>
                         <div
                             className="marker-card__close"
@@ -122,10 +121,14 @@ const Home = () => {
 
     
     return (
-        <>
+        <div className="container" data-test="home">
             <div className="sidebar">
-                <NearByForm onSubmit={getResults} isLoading={results.isLoading}/>
-                <div className="card-container">
+                <NearbyForm 
+                    onSubmit={getResults} 
+                    isLoading={results.isLoading}
+                    data-test="nearbyFormComponent"
+                />
+                <div className="card-container" data-test="placeCardContainer">
                     {results.error && <h5>Something Went Wrong. Please Try Again!</h5>}
                     {results.data && !results.data.length && (
                         <h5>No Results Found. Please Try Some Other Place!</h5>
@@ -139,6 +142,7 @@ const Home = () => {
                                 key={result.id} 
                                 data={result}
                                 displayMarkerCard={markerClick}
+                                data-test="placeCardComponent"
                             />
                         )
                     ): null}
@@ -153,6 +157,7 @@ const Home = () => {
                             defaultZoom={15}
                             yesIWantToUseGoogleMapApiInternals = {true}
                             onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+                            data-test="map"
                         >
                             {
                                 results.data && results.data.map(result => (
@@ -161,6 +166,7 @@ const Home = () => {
                                             ...result
                                         }
                                         key={result.id}
+                                        data-test="mapMarker"
                                     />
                                 ))
                             }
@@ -168,8 +174,8 @@ const Home = () => {
                         </GoogleMapReact>
                     )
                 }
-            </div>
-        </>
+            </div>				
+        </div>
     )
 }
 

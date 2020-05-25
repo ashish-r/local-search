@@ -12,7 +12,7 @@ const NearByForm = (
         isLoading
     }: {
         onSubmit: (data: IFormState) => void
-        isLoading: boolean
+        isLoading?: boolean
     }
 ) => {
     const [formData, setFormData] = useState<IFormState>({type: AVAILABLE_PLACE_TYPES[0].value})
@@ -26,7 +26,7 @@ const NearByForm = (
     } 
     
     return (
-        <div className="side-container">
+        <div className="side-container" data-test="nearbyForm">
             <div className="side-container__form-element">
                 <Dropdown
                     id="type-select"
@@ -36,6 +36,7 @@ const NearByForm = (
                     options={AVAILABLE_PLACE_TYPES}
                     placeholder="Select Type"
                     onChange={(value) => setValue('type', value)}
+                    data-test="nearbyFormDD"
                 />
             </div>
             <div className="side-container__form-element">
@@ -44,6 +45,7 @@ const NearByForm = (
                     name="keyword"
                     placeholder="Enter Keyword (Optional)"
                     onChange={(value) => setValue('searchKey', value)}
+                    data-test="nearbyFormTextInput"
                 />
             </div>
             <div className="side-container__form-element">
@@ -54,10 +56,16 @@ const NearByForm = (
                     name="isOpenOnly"
                     onChange={(value) => setValue('opennow', value)}
                     switchText={['Yes', 'No']}
+                    data-test="nearbyFormSwitch"
                 />
             </div>
             <div>
-                <Button value="Search" onClick={submitForm}/>
+                <Button 
+                    value="Search" 
+                    onClick={submitForm} 
+                    isLoading={isLoading}
+                    data-test="nearbyFormButton"
+                />
             </div>
         </div>
     )
