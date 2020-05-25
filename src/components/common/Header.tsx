@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => (
     <header className="site-header">
-        <h1 className="site-title">
+        <h1>
             <span>
                 Local Search
             </span>

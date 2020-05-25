@@ -27,7 +27,7 @@ const NearByForm = (
     
     return (
         <div className="side-container">
-            <div className="form-element">
+            <div className="side-container__form-element">
                 <Dropdown
                     id="type-select"
                     name="type"
@@ -38,7 +38,7 @@ const NearByForm = (
                     onChange={(value) => setValue('type', value)}
                 />
             </div>
-            <div className="form-element">
+            <div className="side-container__form-element">
                 <TextInput
                     id="keyword-input"
                     name="keyword"
@@ -46,7 +46,7 @@ const NearByForm = (
                     onChange={(value) => setValue('searchKey', value)}
                 />
             </div>
-            <div className="form-element">
+            <div className="side-container__form-element">
                 <span>Only Open Places: &nbsp;&nbsp;</span>
                 <Switch 
                     id="is-open-only-switch"

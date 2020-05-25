@@ -16,6 +16,7 @@ const TextInput = (props: ITextInputProps) => {
     }
     return (
         <input 
+            className="text-input"
             type="text" 
             id={props.id} 
             name={props.name} 
