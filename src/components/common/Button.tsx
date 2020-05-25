@@ -2,21 +2,26 @@ import React from "react"
 
 export interface ITextInputProps{
     value: string
-    onclick?: () => void
+    onClick?: () => void
     className?: string
     isLoading?: boolean
 }
 
-const Button = (props: ITextInputProps) => {
-    const onclick = () => {
-        props.onclick && props.onclick()
+const Button = ({
+    value,
+    onClick,
+    className,
+    isLoading,
+}: ITextInputProps) => {
+    const onClickHandler = () => {
+        onClick && onClick()
     }
     return (
         <input 
             type="submit" 
-            className="button"
-            value={props.isLoading ? 'Loading...' : props.value} 
-            onClick={onclick} 
+            className={`button ${className || ''}`}
+            value={isLoading ? 'Loading...' : value} 
+            onClick={onClickHandler} 
         />
     )
 }

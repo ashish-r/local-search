@@ -57,7 +57,7 @@ const NearByForm = (
                 />
             </div>
             <div>
-                <Button value="Search" onclick={submitForm}/>
+                <Button value="Search" onClick={submitForm}/>
             </div>
         </div>
     )

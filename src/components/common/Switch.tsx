@@ -6,42 +6,51 @@ export interface ISwitchProps{
     id: string
     name: string
     switchText: string[]
-    onChange:(isSelected: boolean) => void
+    onChange?:(isSelected: boolean) => void
+    className?: string
 }
 
-const Switch = (props: ISwitchProps) => {
-    const [checked, setChecked] = useState(props.defaultChecked)
+const Switch = ({
+    defaultChecked,
+    disabled,
+    id,
+    name,
+    switchText,
+    onChange,
+    className,
+}: ISwitchProps) => {
+    const [checked, setChecked] = useState(defaultChecked)
 
-    function onChange(e: React.ChangeEvent<HTMLInputElement>) {
+    function onChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
         setChecked(!checked)
-        props.onChange && props.onChange(!checked)
+        onChange && onChange(!checked)
     }
 
     return (
-        <div className="toggle-switch">
+        <div className={`toggle-switch ${className || ''}`}>
             <input
                 type="checkbox"
-                name={props.name}
+                name={name}
                 className="toggle-switch__checkbox"
-                id={props.id}
+                id={id}
                 defaultChecked={checked}
-                onChange={onChange}
+                onChange={onChangeHandler}
             />
-            {props.id ? (
-                <label className="toggle-switch__label" htmlFor={props.id}>
+            {id ? (
+                <label className="toggle-switch__label" htmlFor={id}>
                 <span
                     className={
                         `toggle-switch__inner ${
-                            props.disabled ? 'toggle-switch__inner--disabled' : ''
+                            disabled ? 'toggle-switch__inner--disabled' : ''
                         }`
                     }
-                    data-yes={props.switchText[0]}
-                    data-no={props.switchText[1]}
+                    data-yes={switchText[0]}
+                    data-no={switchText[1]}
                 />
                 <span
                     className={
                         `toggle-switch__slider ${
-                            props.disabled ? 'toggle-switch__slider--disabled' : ''
+                            disabled ? 'toggle-switch__slider--disabled' : ''
                         }`
                     }
                 />
@@ -52,4 +61,3 @@ const Switch = (props: ISwitchProps) => {
 }
 
 export default Switch
-

@@ -6,22 +6,30 @@ export interface ITextInputProps{
     placeholder?: string
     onChange?: (value: string) => void
     defaultValue?: string
+    className?: string
 }
 
-const TextInput = (props: ITextInputProps) => {
-    const [value, setValue] = useState(props.defaultValue || '')
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const TextInput = ({
+    id,
+    name,
+    placeholder,
+    onChange,
+    defaultValue,
+    className,
+}: ITextInputProps) => {
+    const [value, setValue] = useState(defaultValue || '')
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
-        props.onChange && props.onChange(e.target.value)
+        onChange && onChange(e.target.value)
     }
     return (
         <input 
-            className="text-input"
+            className={`text-input ${className}`}
             type="text" 
-            id={props.id} 
-            name={props.name} 
-            placeholder={props.placeholder} 
-            onChange={onChange}
+            id={id} 
+            name={name} 
+            placeholder={placeholder} 
+            onChange={onChangeHandler}
             value={value}
         />
     )

@@ -9,38 +9,50 @@ export interface IDropdownProps {
     placeholder?: string
     defaultValue?: string
     onChange?: (value: string) => void
+    className?: string
 }
 
-const Dropdown = (props: IDropdownProps) => {
-    const [value, setValue] = useState(props.defaultValue)
+const Dropdown = ({
+    options,
+    labelKey,
+    valueKey,
+    id,
+    name,
+    placeholder,
+    defaultValue,
+    onChange,
+    className,
+}: IDropdownProps) => {
+    const [value, setValue] = useState(defaultValue)
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setValue(e.target.value)
-        props.onChange && props.onChange(e.target.value)
+        onChange && onChange(e.target.value)
     }
 
-    let options = props.options.map(data => (
+    const selectOptions = options.map(data => (
         <option 
-            key={data[props.valueKey]} 
-            value={data[props.valueKey]}
+            key={data[valueKey]} 
+            value={data[valueKey]}
         >
-            {data[props.labelKey]}
+            {data[labelKey]}
         </option>
     ))
 
     return (
         <select 
-            id={props.id} 
-            name={props.name} 
+            id={id} 
+            name={name} 
             onChange={handleChange} 
             value={value}
-            className="dropdown"
+            className={`dropdown ${
+                className || ''
+            }`}
         >
-            {props.placeholder && (<option disabled>{props.placeholder}</option>)}
-            {options}
+            {placeholder && (<option disabled>{placeholder}</option>)}
+            {selectOptions}
         </select>
     )
 }
-
 
 export default Dropdown
