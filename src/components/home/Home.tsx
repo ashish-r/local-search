@@ -89,7 +89,7 @@ const Home = () => {
         <div>
             {
                 (props.id === displayedMarker) &&
-                (<div className="marker-card" data-test="markerCard">
+                (<div className="marker-card">
                     <>
                         <div
                             className="marker-card__close"
@@ -142,7 +142,6 @@ const Home = () => {
                                 key={result.id} 
                                 data={result}
                                 displayMarkerCard={markerClick}
-                                data-test="placeCardComponent"
                             />
                         )
                     ): null}
@@ -166,7 +165,6 @@ const Home = () => {
                                             ...result
                                         }
                                         key={result.id}
-                                        data-test="mapMarker"
                                     />
                                 ))
                             }
