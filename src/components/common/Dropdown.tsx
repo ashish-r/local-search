@@ -29,7 +29,13 @@ const Dropdown = (props: IDropdownProps) => {
     ))
 
     return (
-        <select id={props.id} name={props.name} onChange={handleChange} value={value}>
+        <select 
+            id={props.id} 
+            name={props.name} 
+            onChange={handleChange} 
+            value={value}
+            className="dropdown"
+        >
             {props.placeholder && (<option disabled>{props.placeholder}</option>)}
             {options}
         </select>

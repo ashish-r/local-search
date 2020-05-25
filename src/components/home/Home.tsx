@@ -90,10 +90,10 @@ const Home = () => {
         <div>
             {
                 (props.id === displayedMarker) &&
-                (<div className="marker-card-wrapper">
+                (<div className="marker-card">
                     <>
                         <div
-                            className="marker-card-close"
+                            className="marker-card__close"
                             onClick={() => markerClick()}
                         >
                             x
@@ -125,7 +125,7 @@ const Home = () => {
         <>
             <div className="sidebar">
                 <NearByForm onSubmit={getResults} isLoading={results.isLoading}/>
-                <div className="side-container card-container">
+                <div className="card-container">
                     {results.error && <h5>Something Went Wrong. Please Try Again!</h5>}
                     {results.data && !results.data.length && (
                         <h5>No Results Found. Please Try Some Other Place!</h5>
@@ -143,10 +143,8 @@ const Home = () => {
                         )
                     ): null}
                 </div>
-
-
             </div>
-            <div style={{ height: '90vh', flex: 5 }}>
+            <div className="map-container">
                 {
                     position && (
                         <GoogleMapReact

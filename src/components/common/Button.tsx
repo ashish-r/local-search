@@ -14,6 +14,7 @@ const Button = (props: ITextInputProps) => {
     return (
         <input 
             type="submit" 
+            className="button"
             value={props.isLoading ? 'Loading...' : props.value} 
             onClick={onclick} 
         />

@@ -18,31 +18,31 @@ const Switch = (props: ISwitchProps) => {
     }
 
     return (
-        <div className={"toggle toggle-switch"}>
+        <div className="toggle-switch">
             <input
                 type="checkbox"
                 name={props.name}
-                className="toggle-switch-checkbox"
+                className="toggle-switch__checkbox"
                 id={props.id}
                 defaultChecked={checked}
                 onChange={onChange}
             />
             {props.id ? (
-                <label className="toggle-switch-label" htmlFor={props.id}>
+                <label className="toggle-switch__label" htmlFor={props.id}>
                 <span
                     className={
-                    props.disabled
-                        ? "toggle-switch-inner toggle-switch-disabled"
-                        : "toggle-switch-inner"
+                        `toggle-switch__inner ${
+                            props.disabled ? 'toggle-switch__inner--disabled' : ''
+                        }`
                     }
                     data-yes={props.switchText[0]}
                     data-no={props.switchText[1]}
                 />
                 <span
                     className={
-                    props.disabled
-                        ? "toggle-switch-switch toggle-switch-disabled"
-                        : "toggle-switch-switch"
+                        `toggle-switch__slider ${
+                            props.disabled ? 'toggle-switch__slider--disabled' : ''
+                        }`
                     }
                 />
                 </label>
