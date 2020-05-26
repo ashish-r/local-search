@@ -30,6 +30,7 @@ const Home = () => {
     }: IFormState) => {
         if(position && mapLoaded && mapInstance.current) {
             setResults({...results, isLoading: true})
+            setDisplayedMarker(undefined)
             const {map, maps} = mapInstance.current
             const pyrmont = new maps.LatLng(position.lat, position.lng)
             const service = new maps.places.PlacesService(map)
