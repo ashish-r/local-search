@@ -1,7 +1,5 @@
 import React from 'react'
-import {shallow, ShallowWrapper, mount, ReactWrapper} from 'enzyme'
-
-import { GOOGLE_MAP_API_KEY, MAX_RADIUS } from '../../../constants/common'
+import {mount, ReactWrapper} from 'enzyme'
 
 import Home from '../Home'
 import { findByTestAttr } from '../../../utils/common'
