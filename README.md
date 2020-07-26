@@ -1,4 +1,8 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6f07fdfa-4b90-4053-b0d6-c2d83c2011db/deploy-status)](https://app.netlify.com/sites/local-search-ashish/deploys)
 [![DeepScan grade](https://deepscan.io/api/teams/10012/projects/12689/branches/199328/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=10012&pid=12689&bid=199328)
+
+#### PREVIEW: https://local-search-ashish.netlify.app/
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
