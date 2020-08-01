@@ -1,5 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6f07fdfa-4b90-4053-b0d6-c2d83c2011db/deploy-status)](https://app.netlify.com/sites/local-search-ashish/deploys)
 [![DeepScan grade](https://deepscan.io/api/teams/10012/projects/12689/branches/199328/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=10012&pid=12689&bid=199328)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ashish-r/local-search/blob/master/LICENSE)
 
 #### PREVIEW: https://local-search-ashish.netlify.app/
 
